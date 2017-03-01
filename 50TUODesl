@@ -4,9 +4,9 @@
 *  Funkce minimax.
 *  Tato funkce najde minimum a maximum v danem vstupnim poli na jeho plne delce, pripadne na jeho efektivni delce (viz vstup "delka").
 *  Vstup: 		+ int* pole 	- vstupni pole typu integer, ktere se predava pomoci ukazatele;
-*				      + int delka 	- delka vstupniho pole pripadne efektivni delka (ta, ktera se uvazuje).
-*  Vystup:  	+ int* minimum 	- odkazem se predava promenna typu integer, do ktere se ulozi nejmensi cislo v poli na efektivni delce, viz vyse;
-*				      + int* maximum 	- odkazem se predava promenna typu integer, do ktere se ulozi nejvetsi cislo v poli na efektivni delce, viz vyse.
+*			+ int delka 	- delka vstupniho pole pripadne efektivni delka (ta, ktera se uvazuje).
+*  Vystup:  		+ int* minimum 	- odkazem se predava promenna typu integer, do ktere se ulozi nejmensi cislo v poli na efektivni delce, viz vyse;
+*			+ int* maximum 	- odkazem se predava promenna typu integer, do ktere se ulozi nejvetsi cislo v poli na efektivni delce, viz vyse.
 */
 void minimax(int *pole, int delka, int *minimum, int *maximum)
 {
@@ -34,7 +34,7 @@ void minimax(int *pole, int delka, int *minimum, int *maximum)
 *  Vypocita minimum v zadanem vstupnim poli na jeho plne delce, pripadne efektivni delce (viz delka) a vrati ho.
 *  Tato funkce najde minimum a maximum v danem poli na jeho plne delce, pripadne na jeho efektivni delce (viz vstup "delka").
 *  Vstup: 	+ int* pole 	- vstupni pole typu integer, ktere se predava pomoci ukazatele;
-*			      + int delka 	- delka vstupniho pole pripadne efektivni delka (ta, ktera se uvazuje).
+*		+ int delka 	- delka vstupniho pole pripadne efektivni delka (ta, ktera se uvazuje).
 *  Vystup:	+ int (return) 	- vraci se promenna typu integer, do ktere se ulozi nejmensi cislo v poli na efektivni delce, viz vyse.
 *
 */
@@ -59,7 +59,7 @@ int get_min(int *pole, int delka)
 *  Vypocita maximum v zadanem vstupnim poli na jeho plne delce, pripadne efektivni delce (viz delka) a vrati ho.
 *  Tato funkce najde minimum a maximum v danem poli na jeho plne delce, pripadne na jeho efektivni delce (viz vstup "delka").
 *  Vstup: 	+ int* pole 	- vstupni pole typu integer, ktere se predava pomoci ukazatele;
-*			      + int delka 	- delka vstupniho pole pripadne efektivni delka (ta, ktera se uvazuje).
+*		+ int delka 	- delka vstupniho pole pripadne efektivni delka (ta, ktera se uvazuje).
 *  Vystup:	+ int (return) 	- vraci se promenna typu integer, do ktere se ulozi nejvetsi cislo v poli na efektivni delce, viz vyse.
 *
 */
@@ -82,7 +82,7 @@ int get_max(int *pole, int delka)
 /*
 *  Funkce fact.
 *  Vypocita faktorial cisla n a vrati ho.
-*  Vstup:	  + double n 		- cislo, jehoz faktorial se ma spocitat.
+*  Vstup:	+ double n 		- cislo, jehoz faktorial se ma spocitat.
 *  Vystup: 	+ double (return) 	- faktorial cisla n.
 */
 double fact(double n)
@@ -100,8 +100,8 @@ double fact(double n)
 /*
 * Funkce fibonacci
 * Funkce, ktera na vstup dostane cislo, ktere udava n. fibonacciho cislo, ktere vrati na vystupu.
-* Vstup:  + int n 		- cislo, ktere udava poradi fibonacciho cisla, ktere se ma vratit.
-* Vystup: + int (return)	- n. fibonacciho cislo.
+* Vstup:  	+ int n 		- cislo, ktere udava poradi fibonacciho cisla, ktere se ma vratit.
+* Vystup: 	+ int (return)		- n. fibonacciho cislo.
 */
 int fibonacci(int n)
 {
