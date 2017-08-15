@@ -1,0 +1,129 @@
+START
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+
+#define LINESIGNS
+#define BLOCKSIGNS
+
+typedef enum _states_t {
+	start,
+	aph,
+	quot,
+	baph,
+	bquot,
+	slash,
+	lc,
+	bc,
+	bce
+		
+		
+		
+		
+} states_t;
+
+
+
+
+
+
+void ultimate(FILE* f)
+{
+	char c, pc, ppc;
+	states_t state = start;
+	printf("START");
+	c = '\n';
+	while (!feof(f)) {
+		fscanf(f, "%c", &c);
+		if (!feof(f)) {
+			
+			switch (state) {
+				case start: if (c == '\'') state = aph;
+							if (c == '"') state = quot;
+							if (c == '/') {
+								state = slash;
+								pc = c;
+								break;
+							}
+							printf("%c", c);
+							break;
+				case aph: 	if (c == '\\') state = baph;
+							printf("%c", c);
+							break;
+				case quot: 	if (c == '\\') state = bquot;
+							printf("%c", c);
+							break;
+				case baph:  state = aph;
+							printf("%c", c);
+							break;
+				case bquot: state = quot;
+							printf("%c", c);
+							break;
+				case slash: if (c == '/') {
+								#ifdef LINESIGNS
+								printf("%c", pc);
+								printf("%c", c);
+								#endif
+								state = lc;
+							} else if (c == '*') {
+								#ifdef BLOCKSIGNS
+								printf("%c", pc);
+								printf("%c", c);
+								#endif
+								state = bc;
+							} else {
+								state = start;
+								printf("%c", pc);
+								printf("%c", c);
+								
+							}
+							break;
+				case lc:	if (c == '\n') {
+								printf("%c", c);
+								state = start;
+								break;
+							}
+							break;
+				case bc:	if (c == '*') {
+								state = bce;
+								pc = c; 
+							}
+
+
+
+
+		
+		
+		
+		
+							break;
+				case bce: 	if (c == '/') {
+								state = start;
+								#ifdef BLOCKSIGNS
+								printf("%c", pc);
+								printf("%c", c);
+								#endif
+							}
+							break;
+				default:  	printf("SLENDRIAN!!!//line comment");
+							printf("SLENDRIAN!!!/*block comment*/");
+							break;
+			}
+		}
+	}
+	printf("STOP");
+}
+
+int main(int argc, char **argv)
+{
+	printf("hello world\n");
+	FILE* f = fopen("code", "r");
+	ultimate(f);
+	fclose(f);
+	return 0;
+}
+STOP
